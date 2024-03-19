@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "66066112137",
+    "project_id": "trendeo",
+    "storage_bucket": "trendeo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66066112137:android:baa6762779ebf8e86a3058",
+        "android_client_info": {
+          "package_name": "com.example.trendeo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALaB_sxpaTbe3RHL9uQbfr858A1xYbxvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
