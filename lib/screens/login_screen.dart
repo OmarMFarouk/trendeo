@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 import 'package:trendeo/components/sign_in_form.dart';
 import 'package:trendeo/components/sign_up_form.dart';
-import 'package:trendeo/models/registration_banner.dart';
+import 'package:trendeo/components/registration_banner.dart';
 import 'package:trendeo/widgets/background_filter.dart';
 import 'package:trendeo/core/color_app.dart';
 import 'package:trendeo/core/image_app.dart';
@@ -28,6 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
     btnAnimationController = OneShotAnimation("active", autoplay: false);
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
@@ -54,8 +59,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         const ThemeTitel(
                           textAlign: TextAlign.start,
                           height: 1.2,
-                          text: "Trindro",
-                          size: 60,
+                          text: "Trendeo",
+                          size: 50,
                         ),
                         SizedBox(
                           height: 16.h,
@@ -103,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         registrationBanner(
                           context, // Build context build for screen
                           "Sign up", // Titel screen
-                          "Hello dear you missed me", // Description screen
+                          "Hello dear you've been missed", // Description screen
                           const SignUpForm(),
                           onClossd: (value) {
                             isShowDialog = false;

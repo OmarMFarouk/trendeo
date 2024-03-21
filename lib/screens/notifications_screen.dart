@@ -3,12 +3,12 @@ import 'package:trendeo/core/color_app.dart';
 import 'package:trendeo/themes/theme_icon.dart';
 import 'package:trendeo/themes/theme_titel.dart';
 
-class FevoritesScreen extends StatelessWidget {
-  const FevoritesScreen({super.key});
+class NotificationsScreen extends StatelessWidget {
+  const NotificationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: ColorApp.moodApp
           ? ColorApp.darkBackgroundColor
           : ColorApp.lightBackgroundColor,
@@ -29,7 +29,7 @@ class FevoritesScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(20),
                 child: ThemeTitel(
-                  text: "Your Favorites",
+                  text: "Your Natifications",
                   size: 30,
                 ),
               ),
@@ -37,6 +37,6 @@ class FevoritesScreen extends StatelessWidget {
           ),
         ),
       ),
-    );;
+    );
   }
 }

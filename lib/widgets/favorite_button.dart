@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trendeo/core/color_app.dart';
 import 'package:trendeo/themes/theme_titel.dart';
 

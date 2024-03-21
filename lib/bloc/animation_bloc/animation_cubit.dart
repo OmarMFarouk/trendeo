@@ -15,7 +15,7 @@ class AnimationCubit extends Cubit<AnimationStates> {
   Animation<double>? animation;
   bool isSideBarOpen = false;
 
-  MenuItems selectedBottonNav = bottomNavItems.first;
+  NavegetorItems selectedBottonNav = bottomNavItems.first;
   MenuItems selectedSideMenu = sidebarMenus.first;
 
   SMIBool? isMenuOpenInput;

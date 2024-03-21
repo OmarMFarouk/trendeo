@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trendeo/bloc/social_bloc/social_cubit.dart';
 import 'package:trendeo/bloc/social_bloc/social_states.dart';
 import 'package:trendeo/core/color_app.dart';
+import 'package:trendeo/core/navigator_app.dart';
 import 'package:trendeo/models/menu_items.dart';
 import 'package:trendeo/models/menu_viow.dart';
+import 'package:trendeo/src/trendeo_app.dart';
 import 'package:trendeo/utils/rive_utils.dart';
 import 'package:trendeo/widgets/menu_hader.dart';
 
@@ -41,9 +42,7 @@ class _SideBarState extends State<SideBar> {
                 builder: (context, state) => StreamBuilder(
                     stream: SocialCubit.get(context).userData,
                     builder: (context, snapshot) {
-                      if (!snapshot.hasData ||
-                          snapshot.connectionState == ConnectionState.waiting) {
-                      } else if (snapshot.hasData) {
+                      if (snapshot.hasData) {
                         DocumentSnapshot data =
                             snapshot.data as DocumentSnapshot;
 
@@ -52,8 +51,13 @@ class _SideBarState extends State<SideBar> {
                           titel: data['name'],
                           supTitel: data['email'],
                         );
+                      } else {
+                        const Center(
+                          child: Text('No posts to show...'),
+                        );
                       }
-                      return SizedBox();
+
+                      return Container();
                     }),
               ),
               Padding(
@@ -74,6 +78,9 @@ class _SideBarState extends State<SideBar> {
                     RiveUtils.chnageSMIBoolState(menu.rive.status!);
                     setState(() {
                       selectedSideMenu = menu;
+                    });
+                    Future.delayed(const Duration(milliseconds: 100), () {
+                      navigatorApp(context, menu.screen!);
                     });
                   },
                   riveOnInit: (artboard) {
@@ -100,6 +107,9 @@ class _SideBarState extends State<SideBar> {
                     RiveUtils.chnageSMIBoolState(menu.rive.status!);
                     setState(() {
                       selectedSideMenu = menu;
+                    });
+                    Future.delayed(const Duration(milliseconds: 100), () {
+                      navigatorApp(context, menu.screen!);
                     });
                   },
                   riveOnInit: (artboard) {

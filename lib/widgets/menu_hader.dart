@@ -18,7 +18,7 @@ class MenuHeder extends StatelessWidget {
         child: Column(
           children: [
             CircleAvatar(
-              radius: 40.h,
+              radius: 35.h,
               backgroundImage: NetworkImage(image),
               backgroundColor: ColorApp.moodApp
                   ? ColorApp.darkDelicateColor

@@ -6,7 +6,7 @@ import 'package:trendeo/bloc/auth_bloc/auth_cubit.dart';
 import 'package:trendeo/bloc/auth_bloc/auth_states.dart';
 import 'package:trendeo/components/custom_positioned.dart';
 import 'package:trendeo/core/navigator_app.dart';
-import 'package:trendeo/screens/home_screen.dart';
+import 'package:trendeo/src/trendeo_app.dart';
 import 'package:trendeo/themes/theme_button.dart';
 import 'package:trendeo/themes/thene_text.dart';
 import 'package:trendeo/widgets/inpout_text.dart';
@@ -68,7 +68,7 @@ class _SignInFormState extends State<SignUpForm> {
               // Navigate & hide confetti
               Future.delayed(const Duration(seconds: 1), () {
                 // Navigator.pop(context);
-                navigatorApp(context, const HomeScreen());
+                navigatorApp(context, const TrendeoApp());
               });
             },
           );
@@ -89,9 +89,16 @@ class _SignInFormState extends State<SignUpForm> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        state is AuthSuccess ? singUp(context) : null;
+      },
       builder: (context, state) {
         var cubit = AuthCubit.get(context);
         return Stack(

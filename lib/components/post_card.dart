@@ -15,14 +15,18 @@ class PostCard extends StatelessWidget {
       required this.onPressed,
       required this.userImage,
       required this.image,
+      required this.authorIsUser,
+      required this.deletePost,
       required this.likesCount});
   final String titlePost;
   final Widget image;
   final VoidCallback onPressed;
+  final VoidCallback deletePost;
   final bool isFavorite;
   final String userName;
   final String userImage;
   final int likesCount;
+  final bool authorIsUser;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,8 +54,17 @@ class PostCard extends StatelessWidget {
               title: ThemeTitel(
                 textAlign: TextAlign.start,
                 text: userName,
-                size: 20,
+                size: 18,
               ),
+              trailing: authorIsUser
+                  ? IconButton(
+                      icon: Icon(
+                        Icons.delete,
+                        color: Colors.red,
+                      ),
+                      onPressed: deletePost,
+                    )
+                  : null,
               leading: CircleAvatar(
                 backgroundImage: NetworkImage(userImage),
                 backgroundColor: ColorApp.moodApp

@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trendeo/core/shared.dart';
 
+import '../../components/sign_up_form.dart';
 import 'auth_states.dart';
 
 class AuthCubit extends Cubit<AuthStates> {
@@ -44,6 +46,10 @@ class AuthCubit extends Cubit<AuthStates> {
                   'image':
                       'https://firebasestorage.googleapis.com/v0/b/trendeo.appspot.com/o/def.png?alt=media&token=6799b70a-e2c7-4fae-9595-fae0b9e0560c'
                 }));
+
+        await SharedPref.localStorage?.setString('image',
+            'https://firebasestorage.googleapis.com/v0/b/trendeo.appspot.com/o/def.png?alt=media&token=6799b70a-e2c7-4fae-9595-fae0b9e0560c');
+        await SharedPref.localStorage?.setString('name', name.text);
         emit(AuthSuccess());
       } on FirebaseAuthException catch (e) {
         // ignore: use_build_context_synchronously
